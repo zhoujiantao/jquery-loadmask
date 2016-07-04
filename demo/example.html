@@ -7,29 +7,29 @@
 		<script type='text/javascript' src='../jquery.loadmask.js'></script>
 		<style>
 			body{font-size:11px;font-family:tahoma;}
-			#content { padding:5px;width:200px; }
+			#content { padding:5px;width:200px; border:20px solid red;position: relative}
 			#buttons { padding-left:40px; }
 		</style>
 	</head>
 	<body>
 		Please fill out the form:
 		<div id="content">
-			<div>Field1: <input type="text"></div>
+			<div style="z-index:101">Field1: <input type="text"></div>
 			<div>Field2: <input type="text"></div>
 			<div>Field3: <input type="text"></div>
 			<div>Field4: <input type="text"></div>
 		</div>
-		<div id="buttons">
+		<div id="buttons" style="position:absolute; top:100px;left:400px;">
 			<input type="button" value="Process" id="process">
 			<input type="button" value="Cancel" id="cancel">
 		</div>
-		
+
 		<script>
 			$(document).ready(function(){
 				$("#process").bind("click", function () {
 					$("#content").mask("Waiting...");
 				});
-				
+
 				$("#cancel").bind("click", function () {
 					$("#content").unmask();
 				});
